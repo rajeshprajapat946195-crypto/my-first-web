@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>City Results</title>
+</head>
+<body>
+
+<h1 id="title"></h1>
+<div id="images"></div>
+
+<script>
+let params = new URLSearchParams(window.location.search);
+let city = params.get("city");
+
+document.getElementById("title").innerText = city + " Famous Places";
+
+// Unsplash API
+let apiKey = "YOUR_API_KEY";
+
+fetch(`https://api.unsplash.com/search/photos?query=${city} famous places&client_id=${apiKey}`)
+.then(res => res.json())
+.then(data => {
+  data.results.forEach(photo => {
+    let img = document.createElement("img");
+    img.src = photo.urls.full;
+    img.style.width = "300px";
+    document.getElementById("images").appendChild(img);
+  });
+});
+</script>
+
+</body>
+</html>
