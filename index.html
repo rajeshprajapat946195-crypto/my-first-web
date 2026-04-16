@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>City Explorer</title>
+</head>
+<body>
+
+<h1>Search Your City</h1>
+
+<input type="text" id="city" placeholder="Enter city name">
+<button onclick="searchCity()">Search</button>
+
+<script>
+function searchCity() {
+  let city = document.getElementById("city").value;
+  window.location.href = "result.html?city=" + city;
+}
+</script>
+
+</body>
+</html>
